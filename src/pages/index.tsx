@@ -4,10 +4,6 @@ import { useKeenSlider } from "keen-slider/react";
 
 import { HomeContainer, Product } from "@/styles/pages/home";
 
-import camise1 from "../assets/cametas/t-shirt1.png";
-import camise2 from "../assets/cametas/t-shirt2.png";
-import camise3 from "../assets/cametas/t-shirt3.png";
-
 import "keen-slider/keen-slider.min.css";
 import { stripe } from "@/lib/stripe";
 import { GetServerSideProps } from "next";
