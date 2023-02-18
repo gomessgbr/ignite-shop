@@ -29,7 +29,6 @@ export default function Home({ products }: HomeProps) {
     },
   });
 
-  console.log(sliderRef);
   return (
     <>
       <Head>
