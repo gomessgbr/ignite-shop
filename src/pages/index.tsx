@@ -28,7 +28,7 @@ export default function Home({ products }: HomeProps) {
       spacing: 48,
     },
   });
-
+  console.log(sliderRef);
   return (
     <>
       <Head>
