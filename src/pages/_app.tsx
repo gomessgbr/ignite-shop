@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
       mode="payment"
       cartMode="checkout-session"
       stripe={process.env.STRIPE_PUBLIC_KEY}
-      currency="USD"
+      currency="BRL"
     >
       <Container>
         <Header>
