@@ -28,4 +28,10 @@ export const HeaderCartButton = styled("button", {
   borderRadius: "6px",
   backgroundColor: "$gray800",
   borderStyle: "none",
+  color: "#8D8D99",
+
+  "&:hover": {
+    color: "$gray300",
+    transition: "all 0.5s",
+  },
 });

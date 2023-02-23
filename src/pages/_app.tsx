@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Header>
           <Image src={logoIgniteShop} alt="" />
           <HeaderCartButton>
-            <Handbag size={26} color="#8D8D99" />
+            <Handbag size={26} />
           </HeaderCartButton>
         </Header>
         <Component {...pageProps} />
