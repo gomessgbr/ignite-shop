@@ -17,3 +17,15 @@ export const Header = styled("header", {
   flexDirection: "row",
   justifyContent: "space-between",
 });
+
+export const HeaderCartButton = styled("button", {
+  display: "flex",
+  width: "3rem",
+  height: "3rem",
+  padding: "0.75rem",
+  alignItems: "center",
+  justifyContent: "center",
+  borderRadius: "6px",
+  backgroundColor: "$gray800",
+  borderStyle: "none",
+});

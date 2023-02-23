@@ -2,7 +2,7 @@ import { globalStyles } from "@/styles/global";
 import Image from "next/image";
 import type { AppProps } from "next/app";
 import logoIgniteShop from "../assets/igniteshoplogo.svg";
-import { Container, Header } from "@/styles/pages/app";
+import { Container, Header, HeaderCartButton } from "@/styles/pages/app";
 import { CartProvider } from "use-shopping-cart";
 import { Handbag } from "phosphor-react";
 
@@ -19,9 +19,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <Container>
         <Header>
           <Image src={logoIgniteShop} alt="" />
-          <button>
-            <Handbag size={32} />
-          </button>
+          <HeaderCartButton>
+            <Handbag size={26} color="#8D8D99" />
+          </HeaderCartButton>
         </Header>
         <Component {...pageProps} />
       </Container>
