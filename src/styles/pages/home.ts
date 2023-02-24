@@ -35,6 +35,7 @@ export const Product = styled("div", {
     borderRadius: 6,
 
     display: "flex",
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
 
@@ -62,4 +63,20 @@ export const Product = styled("div", {
       opacity: 1,
     },
   },
+});
+
+export const FooterTextArea = styled("section", {
+  display: "flex",
+  flexDirection: "column",
+});
+
+export const FooterCartIconArea = styled("section", {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundColor: "$green500",
+  color: "$white",
+  padding: "12px",
+  
+  borderRadius: "6px",
 });
