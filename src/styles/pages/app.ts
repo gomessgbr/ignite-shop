@@ -18,20 +18,43 @@ export const Header = styled("header", {
   justifyContent: "space-between",
 });
 
-export const HeaderCartButton = styled("button", {
+export const HeaderCartWrapper = styled("div", {
   display: "flex",
+  backgroundColor: "$gray800",
   width: "3rem",
   height: "3rem",
   padding: "0.75rem",
+  borderRadius: "6px",
+});
+
+export const HeaderCartButton = styled("button", {
+  display: "flex",
+
   alignItems: "center",
   justifyContent: "center",
-  borderRadius: "6px",
-  backgroundColor: "$gray800",
-  borderStyle: "none",
+  backgroundColor: "transparent",
   color: "#8D8D99",
-
+  cursor: "pointer",
+  borderStyle: "none",
   "&:hover": {
     color: "$gray300",
     transition: "all 0.5s",
   },
+});
+
+export const RoudedCartCount = styled("span", {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+
+  position: "relative",
+  borderRadius: "1000px",
+  backgroundColor: "$green500",
+  padding: "0.5rem",
+  bottom: "20px",
+  right: "7px",
+
+  fontWeight: 700,
+  fontSize: "0.875rem",
+  lineHeight: "160%",
 });
