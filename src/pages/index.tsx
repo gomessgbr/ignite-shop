@@ -28,7 +28,8 @@ interface HomeProps {
 }
 
 export default function Home({ products }: HomeProps) {
-  const [sliderRef] = useKeenSlider({
+  const [sliderRef, instanceRef] = useKeenSlider({
+    initial: 0,
     slides: {
       perView: 3,
       spacing: 48,
@@ -41,6 +42,14 @@ export default function Home({ products }: HomeProps) {
         <title>Home | Ignite Shop</title>
       </Head>
       <HomeContainer ref={sliderRef} className="keen-slider">
+        <button
+          onClick={() => {
+            console.log("Zica InstacenRef", instanceRef?.current);
+            instanceRef?.current?.next();
+          }}
+        >
+          ZICATEste
+        </button>
         {products.map((product) => {
           return (
             <Link
@@ -50,13 +59,24 @@ export default function Home({ products }: HomeProps) {
             >
               <Product className="keen-slider__slide">
                 <Image src={product.imageUrl} alt="" width="520" height="480" />
+
                 <footer>
                   <FooterTextArea>
                     <strong>{product.name}</strong>
                     <span>{product.price}</span>
                   </FooterTextArea>
                   <FooterCartIconArea>
+                    {/* <button
+                      type="button"
+                      onClick={() =>
+                        console.log(
+                          "Zica InstacenRef",
+                          instanceRef?.current?.track
+                        )
+                      }
+                    > */}
                     <Handbag size={26} />
+                    {/* </button> */}
                   </FooterCartIconArea>
                 </footer>
               </Product>
