@@ -70,13 +70,21 @@ export const FooterTextArea = styled("section", {
   flexDirection: "column",
 });
 
-export const FooterCartIconArea = styled("section", {
+export const FooterCartIconArea = styled("button", {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   backgroundColor: "$green500",
-  color: "$white",
+
   padding: "12px",
-  
+
   borderRadius: "6px",
+  cursor: "pointer",
+  color: "$white",
+  borderStyle: "none",
+
+  button: {
+    backgroundColor: "AliceBlue",
+    width: "100%",
+  },
 });
