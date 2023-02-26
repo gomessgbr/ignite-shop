@@ -48,7 +48,7 @@ export default function Home({ products }: HomeProps) {
             instanceRef?.current?.next();
           }}
         >
-          ZICATEste
+          Click aqui 
         </button>
         {products.map((product) => {
           return (
