@@ -44,11 +44,10 @@ export default function Home({ products }: HomeProps) {
       <HomeContainer ref={sliderRef} className="keen-slider">
         <button
           onClick={() => {
-            console.log("Zica InstacenRef", instanceRef?.current);
             instanceRef?.current?.next();
           }}
         >
-          Click aqui 
+          Click aqui
         </button>
         {products.map((product) => {
           return (
