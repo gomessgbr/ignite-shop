@@ -17,6 +17,11 @@ import "keen-slider/keen-slider.min.css";
 import { stripe } from "@/lib/stripe";
 import Stripe from "stripe";
 import { Handbag } from "phosphor-react";
+import {
+  DebugCart,
+  useShoppingCart,
+  formatCurrencyString,
+} from "use-shopping-cart";
 
 interface HomeProps {
   products: {
@@ -36,26 +41,27 @@ export default function Home({ products }: HomeProps) {
     },
   });
 
+  const { addItem, clearCart } = useShoppingCart();
+  console.log("Toma no cu pae", useShoppingCart());
+
   return (
     <>
       <Head>
         <title>Home | Ignite Shop</title>
       </Head>
+
       <HomeContainer ref={sliderRef} className="keen-slider">
-        <button
-          onClick={() => {
-            instanceRef?.current?.next();
-          }}
-        >
-          Click aqui
-        </button>
+        <button onClick={() => clearCart()}>Clean Cart</button>
         {products.map((product) => {
           return (
-            <Link
-              href={`/product/${product.id}`}
-              key={product.id}
-              prefetch={false}
-            >
+            <>
+              <button
+                onClick={() =>
+                  console.log("Testando", formatCurrencyString(product.price))
+                }
+              >
+                Zica Testando tudo
+              </button>
               <Product className="keen-slider__slide">
                 <Image src={product.imageUrl} alt="" width="520" height="480" />
 
@@ -64,22 +70,12 @@ export default function Home({ products }: HomeProps) {
                     <strong>{product.name}</strong>
                     <span>{product.price}</span>
                   </FooterTextArea>
-                  <FooterCartIconArea>
-                    {/* <button
-                      type="button"
-                      onClick={() =>
-                        console.log(
-                          "Zica InstacenRef",
-                          instanceRef?.current?.track
-                        )
-                      }
-                    > */}
+                  <FooterCartIconArea onClick={() => addItem(product)}>
                     <Handbag size={26} />
-                    {/* </button> */}
                   </FooterCartIconArea>
                 </footer>
               </Product>
-            </Link>
+            </>
           );
         })}
       </HomeContainer>
