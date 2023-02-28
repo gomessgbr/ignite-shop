@@ -11,6 +11,7 @@ import {
 } from "@/styles/pages/app";
 import { CartProvider } from "use-shopping-cart";
 import { Handbag } from "phosphor-react";
+import Link from "next/link";
 
 globalStyles();
 
@@ -26,9 +27,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <Header>
           <Image src={logoIgniteShop} alt="" />
           <HeaderCartWrapper>
-            <HeaderCartButton>
+            <Link href={`/checkoutPage`}>
               <Handbag size={26} />
-            </HeaderCartButton>
+            </Link>
             <RoudedCartCount>1</RoudedCartCount>
           </HeaderCartWrapper>
         </Header>
