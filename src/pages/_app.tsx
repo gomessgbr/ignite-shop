@@ -9,7 +9,7 @@ import {
   HeaderCartButton,
   RoudedCartCount,
 } from "@/styles/pages/app";
-import { CartProvider } from "use-shopping-cart";
+
 import { Handbag } from "phosphor-react";
 import Link from "next/link";
 
@@ -17,24 +17,17 @@ globalStyles();
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <CartProvider
-      mode="payment"
-      cartMode="checkout-session"
-      stripe={process.env.STRIPE_PUBLIC_KEY}
-      currency="BRL"
-    >
-      <Container>
-        <Header>
-          <Image src={logoIgniteShop} alt="" />
-          <HeaderCartWrapper>
-            <Link href={`/checkoutPage`}>
-              <Handbag size={26} />
-            </Link>
-            <RoudedCartCount>1</RoudedCartCount>
-          </HeaderCartWrapper>
-        </Header>
-        <Component {...pageProps} />
-      </Container>
-    </CartProvider>
+    <Container>
+      <Header>
+        <Image src={logoIgniteShop} alt="" />
+        <HeaderCartWrapper>
+          <HeaderCartButton>
+            <Handbag size={26} />
+          </HeaderCartButton>
+          <RoudedCartCount>1</RoudedCartCount>
+        </HeaderCartWrapper>
+      </Header>
+      <Component {...pageProps} />
+    </Container>
   );
 }

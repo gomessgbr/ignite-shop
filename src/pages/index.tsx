@@ -17,11 +17,6 @@ import "keen-slider/keen-slider.min.css";
 import { stripe } from "@/lib/stripe";
 import Stripe from "stripe";
 import { Handbag } from "phosphor-react";
-import {
-  DebugCart,
-  useShoppingCart,
-  formatCurrencyString,
-} from "use-shopping-cart";
 
 interface HomeProps {
   products: {
@@ -29,6 +24,8 @@ interface HomeProps {
     name: string;
     imageUrl: string;
     price: number;
+    currency: "BRL";
+    description: string;
   }[];
 }
 
@@ -41,9 +38,6 @@ export default function Home({ products }: HomeProps) {
     },
   });
 
-  const { addItem, clearCart } = useShoppingCart();
-  console.log("Toma no cu pae", useShoppingCart());
-
   return (
     <>
       <Head>
@@ -51,18 +45,10 @@ export default function Home({ products }: HomeProps) {
       </Head>
 
       <HomeContainer ref={sliderRef} className="keen-slider">
-        <button onClick={() => clearCart()}>Clean Cart</button>
         {products.map((product) => {
           return (
             <>
-              <button
-                onClick={() =>
-                  console.log("Testando", formatCurrencyString(product.price))
-                }
-              >
-                Zica Testando tudo
-              </button>
-              <Product className="keen-slider__slide">
+              <Product className="keen-slider__slide" key={product.id}>
                 <Image src={product.imageUrl} alt="" width="520" height="480" />
 
                 <footer>
@@ -70,7 +56,7 @@ export default function Home({ products }: HomeProps) {
                     <strong>{product.name}</strong>
                     <span>{product.price}</span>
                   </FooterTextArea>
-                  <FooterCartIconArea onClick={() => addItem(product)}>
+                  <FooterCartIconArea>
                     <Handbag size={26} />
                   </FooterCartIconArea>
                 </footer>
@@ -98,6 +84,7 @@ export const getStaticProps: GetStaticProps = async () => {
         style: "currency",
         currency: "BRL",
       }).format(Number(price.unit_amount) / 100),
+      description: product.description,
     };
   });
 
