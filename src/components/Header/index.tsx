@@ -8,11 +8,14 @@ import {
 } from "./styles";
 
 import logoIgniteShop from "../../assets/igniteshoplogo.svg";
+import Link from "next/link";
 
 export function Header() {
   return (
     <HeaderContainer>
-      <Image src={logoIgniteShop} alt="" />
+      <Link href="/">
+        <Image src={logoIgniteShop} alt="" />
+      </Link>
       <HeaderCartWrapper>
         <HeaderCartButton>
           <Handbag size={26} />
