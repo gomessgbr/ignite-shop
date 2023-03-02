@@ -1,3 +1,4 @@
+import { useCart } from "@/hooks/useCart";
 import { stripe } from "@/lib/stripe";
 import {
   ImageContainer,
@@ -18,31 +19,17 @@ interface ProductProps {
     name: string;
     imageUrl: string;
     price: string;
+    priceNumber: number;
     description: string;
     defaultPriceId: string;
   };
 }
 
 export default function Product({ product }: ProductProps) {
-  const [isCreatingCheckouSession, setIsCreatingCheckoutSession] =
-    useState(false);
+  const { addCart } = useCart();
 
   async function handleByProduct() {
-    try {
-      setIsCreatingCheckoutSession(true);
-      const response = await axios.post("/api/checkout", {
-        priceId: product.defaultPriceId,
-      });
-
-      const { checkoutUrl } = response.data;
-
-      //Isso aqui redireciona o usuário para uma roda que vem de forma externa
-      window.location.href = checkoutUrl;
-    } catch (err) {
-      //Seria bom aqui conectar com alguma ferramenta de observabilidade (Datadog/Sentry)
-      setIsCreatingCheckoutSession(false);
-      alert("Falha ao redirecionar para o checkout");
-    }
+    addCart(product);
   }
 
   return (
@@ -58,9 +45,7 @@ export default function Product({ product }: ProductProps) {
           <h1>{product.name}</h1>
           <span>{product.price}</span>
           <p>{product.description}</p>
-          <button disabled={isCreatingCheckouSession} onClick={handleByProduct}>
-            Comprar Agora
-          </button>
+          <button onClick={handleByProduct}>Comprar Agora</button>
         </ProductDetails>
       </ProductContainer>
     </>
@@ -94,6 +79,7 @@ export const getStaticProps: GetStaticProps<any, { id: string }> = async ({
           style: "currency",
           currency: "BRL",
         }).format(Number(price.unit_amount) / 100),
+        priceNumber: price.unit_amount,
         description: product.description,
         defaultPriceId: price.id,
       },
