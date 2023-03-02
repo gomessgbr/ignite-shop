@@ -7,7 +7,7 @@ export interface ProductProps {
   price: string;
   priceNumber: number;
   description: string;
-  priceIdDefault: string;
+  defaultPriceId: string;
 }
 
 interface CartContextProps {
