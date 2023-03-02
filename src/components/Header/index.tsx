@@ -9,8 +9,11 @@ import {
 
 import logoIgniteShop from "../../assets/igniteshoplogo.svg";
 import Link from "next/link";
+import { useCart } from "@/hooks/useCart";
 
 export function Header() {
+  const { cartItems } = useCart();
+  const cartAmount = cartItems.length;
   return (
     <HeaderContainer>
       <Link href="/">
@@ -20,7 +23,7 @@ export function Header() {
         <HeaderCartButton>
           <Handbag size={26} />
         </HeaderCartButton>
-        <RoudedCartCount>1</RoudedCartCount>
+        {cartAmount > 0 && <RoudedCartCount>{cartAmount}</RoudedCartCount>}
       </HeaderCartWrapper>
     </HeaderContainer>
   );
