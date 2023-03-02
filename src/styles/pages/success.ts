@@ -7,10 +7,20 @@ export const SuccessContainer = styled("main", {
   justifyContent: "center",
   margin: "0 auto",
   height: 656,
+
+  "@container": {
+    padding: "0 1rem",
+  },
+
+  "@notebook": {
+    minHeight: "calc(100vh - 120px)",
+  },
+
   h1: {
     fontSize: "$2xl",
     color: "$gray100",
   },
+
   p: {
     fontSize: "$xl",
     color: "$gray300",
@@ -23,8 +33,8 @@ export const SuccessContainer = styled("main", {
   a: {
     display: "block",
     marginTop: "5rem",
-    fontSize: "$lg",
     color: "$green500",
+    fontSize: "$lg",
     textDecoration: "none",
     fontWeight: "bold",
 
@@ -34,20 +44,25 @@ export const SuccessContainer = styled("main", {
   },
 });
 
-export const ImageContainer = styled("div", {
-  width: "100%",
-  maxWidth: 130,
-  height: 145,
-  background: "linear-gradient(180deg, #1ea483 0%, #7465d4 100%)",
-  borderRadius: 8,
-  padding: "0.25rem",
-  marginTop: "4rem",
-
+export const ImageSection = styled("div", {
   display: "flex",
-  alignItems: "center",
+  flexWrap: "wrap",
   justifyContent: "center",
+  marginTop: "4rem",
+});
 
-  img: {
-    objectFit: "cover",
-  },
+export const ImageContainer = styled("div", {
+  position: "relative",
+  zIndex: 1,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: "0.25rem",
+  margin: "0 -26px",
+
+  width: 140,
+  height: 140,
+  background: "linear-gradient(180deg, #1ea483 0%, #7465e4 100%)",
+  borderRadius: "50%",
+  boxShadow: "0px 0px 60px rgba(0, 0, 0, 0.8)",
 });
