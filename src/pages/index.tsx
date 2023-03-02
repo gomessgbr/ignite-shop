@@ -1,5 +1,5 @@
 import { GetStaticProps } from "next";
-
+import { MouseEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
@@ -19,14 +19,13 @@ import Stripe from "stripe";
 import { Handbag } from "phosphor-react";
 import { useCart } from "@/hooks/useCart";
 import { ProductProps } from "@/contexts/CartContext";
-import { MouseEvent } from "react";
 
 interface HomeProps {
   products: ProductProps[];
 }
 
 export default function Home({ products }: HomeProps) {
-  const { addCart } = useCart();
+  const { addCart, checkItemsOnCart } = useCart();
 
   const [sliderRef, instanceRef] = useKeenSlider({
     initial: 0,
@@ -41,6 +40,7 @@ export default function Home({ products }: HomeProps) {
     product: ProductProps
   ) {
     event.preventDefault();
+    if (checkItemsOnCart(product.id)) return;
 
     addCart(product);
   }
@@ -69,6 +69,7 @@ export default function Home({ products }: HomeProps) {
                   </FooterTextArea>
                   <FooterCartIconArea
                     onClick={(event) => handleAddCart(event, product)}
+                    disabled={checkItemsOnCart(product.id)}
                   >
                     <Handbag size={26} />
                   </FooterCartIconArea>
