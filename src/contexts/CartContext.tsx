@@ -14,6 +14,7 @@ interface CartContextProps {
   cartItems: ProductProps[];
   addCart: (product: ProductProps) => void;
   removeCart: (productId: string) => void;
+  checkItemsOnCart: (productId: string) => boolean;
   cartTotalPrice: number;
 }
 
@@ -38,10 +39,19 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     const filteredCart = cartItems.filter((item) => item.id !== productId);
     setCartItems(filteredCart);
   }
+  function checkItemsOnCart(productId: string) {
+    return cartItems.some((product) => product.id === productId);
+  }
 
   return (
     <CartContext.Provider
-      value={{ addCart, removeCart, cartItems, cartTotalPrice }}
+      value={{
+        addCart,
+        removeCart,
+        cartItems,
+        cartTotalPrice,
+        checkItemsOnCart,
+      }}
     >
       {children}
     </CartContext.Provider>
