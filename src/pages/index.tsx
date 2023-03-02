@@ -17,6 +17,7 @@ import "keen-slider/keen-slider.min.css";
 import { stripe } from "@/lib/stripe";
 import Stripe from "stripe";
 import { Handbag } from "phosphor-react";
+import { useCart } from "@/hooks/useCart";
 
 interface HomeProps {
   products: {
@@ -30,6 +31,8 @@ interface HomeProps {
 }
 
 export default function Home({ products }: HomeProps) {
+  const { addCart } = useCart();
+
   const [sliderRef, instanceRef] = useKeenSlider({
     initial: 0,
     slides: {
@@ -56,7 +59,7 @@ export default function Home({ products }: HomeProps) {
                     <strong>{product.name}</strong>
                     <span>{product.price}</span>
                   </FooterTextArea>
-                  <FooterCartIconArea>
+                  <FooterCartIconArea onClick={() => addCart(product)}>
                     <Handbag size={26} />
                   </FooterCartIconArea>
                 </footer>

@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useState } from "react";
 
-interface ProductProps {
+export interface ProductProps {
   id: string;
   name: string;
   imageUrl: string;
