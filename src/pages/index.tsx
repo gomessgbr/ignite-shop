@@ -18,16 +18,11 @@ import { stripe } from "@/lib/stripe";
 import Stripe from "stripe";
 import { Handbag } from "phosphor-react";
 import { useCart } from "@/hooks/useCart";
+import { ProductProps } from "@/contexts/CartContext";
+import { MouseEvent } from "react";
 
 interface HomeProps {
-  products: {
-    id: string;
-    name: string;
-    imageUrl: string;
-    price: number;
-    currency: "BRL";
-    description: string;
-  }[];
+  products: ProductProps[];
 }
 
 export default function Home({ products }: HomeProps) {
@@ -41,6 +36,15 @@ export default function Home({ products }: HomeProps) {
     },
   });
 
+  function handleAddCart(
+    event: MouseEvent<HTMLButtonElement>,
+    product: ProductProps
+  ) {
+    event.preventDefault();
+
+    addCart(product);
+  }
+
   return (
     <>
       <Head>
@@ -50,8 +54,12 @@ export default function Home({ products }: HomeProps) {
       <HomeContainer ref={sliderRef} className="keen-slider">
         {products.map((product) => {
           return (
-            <>
-              <Product className="keen-slider__slide" key={product.id}>
+            <Link
+              key={product.id}
+              href={`/product/${product.id}`}
+              prefetch={false}
+            >
+              <Product className="keen-slider__slide">
                 <Image src={product.imageUrl} alt="" width="520" height="480" />
 
                 <footer>
@@ -59,12 +67,14 @@ export default function Home({ products }: HomeProps) {
                     <strong>{product.name}</strong>
                     <span>{product.price}</span>
                   </FooterTextArea>
-                  <FooterCartIconArea onClick={() => addCart(product)}>
+                  <FooterCartIconArea
+                    onClick={(event) => handleAddCart(event, product)}
+                  >
                     <Handbag size={26} />
                   </FooterCartIconArea>
                 </footer>
               </Product>
-            </>
+            </Link>
           );
         })}
       </HomeContainer>
