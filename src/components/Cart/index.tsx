@@ -9,6 +9,8 @@ import {
   ModalDescription,
   ModalOverlay,
 } from "./styles";
+import { EmptyCart } from "./EmptyCart";
+import { ContentCart } from "./ContentCart";
 
 export function Cart() {
   const { cartItems } = useCart();
@@ -32,6 +34,9 @@ export function Cart() {
           <ModalClose asChild>
             <X size={24} color="#8D8D99" weight="bold" />
           </ModalClose>
+          <ModalDescription>
+            {cartItems.length >= 1 ? <ContentCart /> : <EmptyCart />}
+          </ModalDescription>
         </ModalContent>
       </Dialog.Portal>
     </Dialog.Root>

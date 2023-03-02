@@ -25,18 +25,17 @@ export const ButtonContainer = styled("div", {
   border: "none",
 });
 
-export const ButtonCartLength = styled("div", {
+export const ButtonCartLength = styled("span", {
   position: "absolute",
-  top: "-7px",
+  top: "-10px",
   right: "-7px",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  width: "24px",
-  height: "24px",
+  padding: "0.5rem",
   background: "$green500",
   borderRadius: "50%",
-  border: "3px solid $gray900",
+
   color: "$white",
   fontSize: "0.75rem",
   fontWeight: "bold",
