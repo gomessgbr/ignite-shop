@@ -13,7 +13,7 @@ Tem como objetivo criar um mini e-commerce de venda de camisetas, isso tudo com 
 - Exibir o valor total da compra
 - Excluir produtos do carrinho
 
-![IgniteShop](https://i.imgur.com/BWNACtA.png)
+![IgniteShop](https://i.imgur.com/aepAuP3.png)
 
 ### Pré-requisitos
 
