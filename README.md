@@ -1,5 +1,5 @@
 <h1 align="center">
-    <a href="">🚀 Ignite Shop</a>
+    🚀  IGNITE SHOP
 </h1>
 
 Aplicação proposta no curso de React da [RockeSeat](https://rocketseat.com.br/).
