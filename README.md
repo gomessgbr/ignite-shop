@@ -1,38 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+    <a href="">🚀 Ignite Shop</a>
+</h1>
 
-## Getting Started
+Aplicação proposta no curso de React da [RockeSeat](https://rocketseat.com.br/).
 
-First, run the development server:
+Tem como objetivo criar um mini e-commerce de venda de camisetas, isso tudo com recursos para validação de meios de pagamentos consumindo a API [Stripe](https://stripe.com/docs/api)
+
+### Features
+
+- Listagem de produtos
+- Adicionar produto no carrinho
+- Exibir o valor total da compra
+- Excluir produtos do carrinho
+
+![IgniteShop](https://i.imgur.com/tHkhi32.png)
+
+### Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
+
+### Como rodar a aplicação
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+# Clone este repositório
+$ git clone https://github.com/gomessgbr/ignite-shop
+# Acesse a pasta do projeto no terminal/cmd
+$ cd ignite-shop
+# Instale as dependências do projeto
+$ npm install ou yarn install
+# Execute a aplicação
+$ npm run dev
+
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+No momento de pagar com o cartão acessar o Stripe disponibiliza [números de cartão para teste](https://stripe.com/docs/testing?locale=pt-BR) ou se preferir, use o seguinte:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+# Coloque uma data posterior atual, qualquer número de CVV
+5555555555554444
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### 🛠 Bibliotecas
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+As seguintes ferramentas foram usadas na construção do projeto:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- [NextJS](https://pt-br.reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [ContexAPI](https://reactjs.org/docs/context.html)
+- [Stitches](https://stitches.dev/)
+- [Radix](https://www.radix-ui.com/)
+- [Axios](https://axios-http.com/ptbr/docs/intro)
+- [KeenSlider](https://github.com/colinhacks/zod)
+- [StripeAPI](https://stripe.com/docs/api)
 
-## Learn More
+### Deploy
 
-To learn more about Next.js, take a look at the following resources:
+<div align=center>
+  <img src="https://i.imgur.com/cVAsZfL.png" alt="Logo Ignite" width="200px">
+</div>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[Acesse aqui o projeto online](https://ignite-shop-three-navy.vercel.app/)
