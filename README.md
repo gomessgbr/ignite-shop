@@ -57,8 +57,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ### Deploy
 
-<div align=center>
-  <img src="https://i.imgur.com/cVAsZfL.png" alt="Logo Ignite" width="200px">
-</div>
+![App Screenshot](https://i.imgur.com/BWNACtA.png)
 
 [Acesse aqui o projeto online](https://ignite-shop-three-navy.vercel.app/)
