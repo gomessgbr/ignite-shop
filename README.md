@@ -2,9 +2,8 @@
     🚀  IGNITE SHOP
 </h1>
 
-Aplicação proposta no curso de React da [RockeSeat](https://rocketseat.com.br/).
 
-Tem como objetivo criar um mini e-commerce de venda de camisetas, isso tudo com recursos para validação de meios de pagamentos consumindo a API [Stripe](https://stripe.com/docs/api)
+Essa aplicação tem como objetivo criar um mini e-commerce de venda de camisetas, isso tudo com recursos para validação de meios de pagamentos consumindo a API [Stripe](https://stripe.com/docs/api)
 
 ### Features
 
@@ -22,20 +21,26 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
 ### Como rodar a aplicação
 
-```bash
 # Clone este repositório
+```bash
 $ git clone https://github.com/gomessgbr/ignite-shop
+```
 # Acesse a pasta do projeto no terminal/cmd
+```bash 
 $ cd ignite-shop
+```
 # Instale as dependências do projeto
+```bash 
 $ npm install ou yarn install
+```
 # Execute a aplicação
+```
+bash
 $ npm run dev
-
-
 ```
 
-No momento de pagar com o cartão acessar o Stripe disponibiliza [números de cartão para teste](https://stripe.com/docs/testing?locale=pt-BR) ou se preferir, use o seguinte:
+
+O pagamento por cartão é feito pela api do Stripe, que disponibiliza [números de cartão para teste](https://stripe.com/docs/testing?locale=pt-BR) ou se preferir, use o seguinte:
 
 ```bash
 # Coloque uma data posterior atual, qualquer número de CVV
