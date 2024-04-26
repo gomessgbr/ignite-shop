@@ -11,6 +11,7 @@ Essa aplicação tem como objetivo criar um mini e-commerce de venda de camiseta
 - Adicionar produto no carrinho
 - Exibir o valor total da compra
 - Excluir produtos do carrinho
+- Serviço de pagamentos via cartão de crédito
 
 ![IgniteShop](https://i.imgur.com/aepAuP3.png)
 
